@@ -8,20 +8,25 @@
     <title>Code Quiz</title>
   </head>
   <body>
-    <header></header>
     <section class=quiz-perimeter>
         <div id=quiz-wrapper>
             <p id=high-scores>View high scores</p>
             <p id=timer>Time:</p>
         </div>
-        <div id=quiz-display>
-            <div id=welcome-body>
-                <h1>Coding Quiz Challenge</h1>
-                <div>Try to answer the following code-related questions within the time limit.<br />Keep in mind that incorrect answers will penalize your score/time by ten seconds!</div>
-                <button type="submit" id=start-quiz>Start Quiz</button>
-            </div>
+        <div id=welcome-body>
+            <h1>Coding Quiz Challenge</h1>
+            <div>Try to answer the following code-related questions within the time limit.<br />Keep in mind that incorrect answers will penalize your score/time by ten seconds!</div>
+            <button type="submit" id=start-quiz onclick="startQuiz()
+            ">Start Quiz</button>
         </div>
-    </section>
+        <div class="quiz-container">
+            <div id="quiz"></div>
+        </div>
+        <button id="previous" class=nav-button>Previous Question</button>
+        <button id="next" class=nav-button>Next Question</button>
+        <button id="submit" class=nav-button>Submit Quiz</button>
+        <div id="results"></div>
+      </section>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
