@@ -1,16 +1,46 @@
 var buttonEl = document.querySelector("#start-quiz");
 var newPageEl = document.querySelector("#welcome-body");
 
+
 var createPageHandler = function() {
     newPageEl.replaceWith("");
     }
 buttonEl.addEventListener("click",createPageHandler);
 
-
 function startQuiz(){
     (function(){ 
-
     // Functions
+        function getTimeRemaining(endtime) {
+            const total = Date.parse(endtime) - Date.parse(new Date());
+            const seconds = Math.floor(total / 1000);
+        
+            return {
+                total,
+                seconds
+            };
+        }
+        
+        function initializeClock(id, endtime) {
+            const clock = document.getElementById(id);
+            const secondsSpan = clock.querySelector('.seconds');
+        
+            function updateClock() {
+                const t = getTimeRemaining(endtime);
+                secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+                
+                if(t.total <= 0) {
+                    clearInterval(timeinterval);
+                }
+            }
+        
+            updateClock();
+            const timeinterval = setInterval(updateClock, 1000);
+        }
+        
+        const deadline = new Date(Date.parse(new Date()) + 90 * 1000);
+        initializeClock('timer', deadline);
+
+    
     function buildQuiz(){
       // variable to store the HTML output
       const output = [];
@@ -77,6 +107,7 @@ function startQuiz(){
         else{
           // color the answers red
           answerContainers[questionNumber].style.color = 'red';
+          t.total = t.total - 10;
         }
       });
   

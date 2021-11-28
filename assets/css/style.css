@@ -76,9 +76,15 @@ button:hover{
 #quiz-wrapper{
     display: flex;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 20px;
 }
 
 #high-scores {
     color: rgb(170, 53, 170);
 }
+
+#timer{
+    text-align: center;
+    display: flex;
+    font-weight: bold;
+  }
