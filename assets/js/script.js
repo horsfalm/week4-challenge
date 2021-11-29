@@ -55,13 +55,12 @@ function startQuiz(){
           // and for each available answer...
           for(number in currentQuestion.answers){
   
-            // ...add an HTML radio button
+            // ...add an HTML button
             answers.push(
               `<label>
-                <input type="radio" name="question${questionNumber}" value="${number}">
-                ${number}.
-                ${currentQuestion.answers[number]}
-              </label>`
+              <input type="radio" name="question${questionNumber}" value="${number}">
+              ${number} :
+              ${currentQuestion.answers[number]}</label>`
             );
           }
   
@@ -107,7 +106,6 @@ function startQuiz(){
         else{
           // color the answers red
           answerContainers[questionNumber].style.color = 'red';
-          t.total = t.total - 10;
         }
       });
   
